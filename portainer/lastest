@@ -1,1 +1,1 @@
-FROM portainer:latest
+FROM portainer/portainer:latest
