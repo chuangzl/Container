@@ -108,9 +108,9 @@ RUN set -x \
 	\
 	&& wget https://rawgit.com/chuangzl/Container/master/httpserver/httpd.conf \
 	\
-	&& rm -rf /etc/httpd/conf/httpd.conf \
+	&& rm -rf /usr/local/apache2/conf/httpd.conf \
 	\
-	&& cp httpd.conf /etc/httpd/conf/httpd.conf
+	&& cp httpd.conf /usr/local/apache2/conf/httpd.conf
 	
 
 COPY httpd-foreground /usr/local/bin/
