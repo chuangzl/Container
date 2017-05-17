@@ -1,12 +1,16 @@
 FROM centos:7.3.1611
 MAINTAINER chuangzl <chuangzlcisco.com>
-RUN yum -y install wget
-RUN yum -y install httpd
-RUN yum -y install mod_fcgid
-RUN yum -y install python-devel
-RUN wget https://rawgit.com/chuangzl/Container/master/httpserver/httpd.conf
-RUN rm -rf /etc/httpd/conf/httpd.conf
-RUN cp httpd.conf /etc/httpd/conf/httpd.conf
+
+ENV CONFIGFILE /etc/httpd/conf/httpd.conf
+
+RUN yum -y install wget httpd mod_fcgid python-devel \
+    && echo "<VirtualHost *:80>" >> $CONFIGFILE \
+    && echo "  DocumentRoot /var/www/html/" >> $CONFIGFILE \
+    && echo "  ProxyPreserveHost On" >> $CONFIGFILE \
+	&& echo "  ProxyPass /proxy http://www.baidu.com/ " >> $CONFIGFILE \
+	&& echo "</VirtualHost>" >> $CONFIGFILE
+	
+	
 ENTRYPOINT ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 
 EXPOSE 80
