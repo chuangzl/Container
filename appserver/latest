@@ -4,8 +4,9 @@ MAINTAINER chuangzl <chuangzlcisco.com>
 RUN yum -y install epel-release
 
 RUN yum -y install wget python python-pip python-virtualenv python-devel git \
-    && pip install --upgrade pip\
-    && pip install requests 
+    && pip install --upgrade pip \
+    && pip install requests \
+    && pip install web.py
     
 
 #RUN git clone 	
