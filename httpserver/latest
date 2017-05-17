@@ -5,8 +5,8 @@ RUN yum -y install httpd
 RUN yum -y install mod_fcgid
 RUN yum -y install python-devel
 RUN wget https://rawgit.com/chuangzl/Container/master/httpserver/httpd.conf
-RUN rm -rf /etc/httpd/conf/httpd.conf?
-RUN cp httpd.conf /etc/httpd.conf/
+RUN rm -rf /etc/httpd/conf/httpd.conf
+RUN cp httpd.conf /etc/httpd/conf/httpd.conf
 RUN systemctl start httpd
 RUN systemctl enable httpd
 EXPOSE 80
