@@ -1,8 +1,6 @@
 FROM centos:7.3.1611
 MAINTAINER chuangzl <chuangzlcisco.com>
 
-ENV CONFIGFILE /etc/httpd/conf/httpd.conf
-
 RUN yum -y install wget python python-pip python-virtualenv python-devel git \
     && pip install --upgrade  \
     && pip install requests 
