@@ -3,12 +3,15 @@ MAINTAINER chuangzl <chuangzlcisco.com>
 
 ENV CONFIGFILE /etc/httpd/conf/httpd.conf
 
-RUN yum -y install wget httpd mod_fcgid python-devel \
+RUN yum -y install wget httpd mod_fcgid python-devel git \
     && echo "<VirtualHost *:80>" >> $CONFIGFILE \
     && echo "  DocumentRoot /var/www/html/" >> $CONFIGFILE \
     && echo "  ProxyPreserveHost On" >> $CONFIGFILE \
 	&& echo "  ProxyPass /proxy http://www.baidu.com/ " >> $CONFIGFILE \
-	&& echo "</VirtualHost>" >> $CONFIGFILE
+	&& echo "</VirtualHost>" >> $CONFIGFILE 
+
+#RUN git clone 	
+	
 	
 	
 ENTRYPOINT ["/usr/sbin/httpd", "-D", "FOREGROUND"]

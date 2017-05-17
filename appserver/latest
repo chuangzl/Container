@@ -1,0 +1,17 @@
+FROM centos:7.3.1611
+MAINTAINER chuangzl <chuangzlcisco.com>
+
+ENV CONFIGFILE /etc/httpd/conf/httpd.conf
+
+RUN yum -y install wget python python-pip python-virtualenv python-devel git \
+    && pip install --upgrade  \
+    && pip instll requests 
+    
+
+#RUN git clone 	
+	
+WORKDIR /data	
+	
+ENTRYPOINT ["python /data/service/service.py 9090"]
+
+EXPOSE 9090
