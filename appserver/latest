@@ -5,13 +5,13 @@ ENV CONFIGFILE /etc/httpd/conf/httpd.conf
 
 RUN yum -y install wget python python-pip python-virtualenv python-devel git \
     && pip install --upgrade  \
-    && pip instll requests 
+    && pip install requests 
     
 
 #RUN git clone 	
 	
 WORKDIR /data	
 	
-ENTRYPOINT ["python /data/service/service.py 9090"]
+ENTRYPOINT ["python"]
 
 EXPOSE 9090
