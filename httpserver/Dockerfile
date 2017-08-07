@@ -16,6 +16,6 @@ RUN apt-get update -y \
       && pip install web.py \
       && pip install requests 
 
-ENTRYPOINT ["/etc/init.d/apache2 start", "-D", "FOREGROUND"]
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 
       
