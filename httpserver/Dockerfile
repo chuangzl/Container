@@ -9,6 +9,5 @@ RUN apt-get update -y \
       && wget -O /etc/apache2/conf-available/wsgi.conf "https://rawgit.com/chuangzl/Container/master/wsgi.conf" \
       && wget -O /etc/apache2/apache2.conf "https://rawgit.com/chuangzl/Container/master/apache2.conf" \
       && service apache2 reload \
-      && a2enconf wsgi \
-      && service apache2 restart \
+      && a2enconf wsgi
       
