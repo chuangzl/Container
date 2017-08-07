@@ -16,6 +16,6 @@ RUN apt-get update -y \
       && pip install web.py \
       && pip install requests 
 
-CMD ["service apache2 start"]
+CMD ["/etc/init.d/apache2 start"]
 
       
