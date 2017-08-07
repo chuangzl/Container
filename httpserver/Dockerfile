@@ -11,5 +11,11 @@ RUN apt-get update -y \
       && service apache2 restart \
       && service apache2 reload \
       && a2enconf wsgi \
-      && service apache2 restart
+      && service apache2 restart \
+      && pip install --upgrade pip \
+      && pip install web.py \
+      && pip install requests 
+
+CMD ["service apache2 start"]
+
       
